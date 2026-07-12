@@ -1,0 +1,60 @@
+.analytics-box {
+  margin: 22px 0;
+  padding: 18px;
+  border: 1px solid #e5b8b2;
+  background: #fff7f4;
+}
+.analytics-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.analytics-heading h3 { margin: 0; font-size: 17px; }
+.focus-badge {
+  padding: 7px 9px;
+  background: #e6f4ec;
+  color: #12633e;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.focus-badge.invalid { background: #fee2e2; color: #991b1b; }
+.analytics-findings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 15px;
+}
+.analytics-findings article {
+  display: grid;
+  grid-template-columns: 27px 1fr;
+  gap: 8px;
+  padding: 11px;
+  border: 1px solid #eadfd8;
+  background: white;
+}
+.analytics-findings article > span { color: var(--red); font: 700 10px "IBM Plex Mono", monospace; }
+.analytics-findings p { margin: 0; color: #514b45; font-size: 10px; line-height: 1.6; }
+.analytics-findings b { color: var(--red-dark); }
+.peer-review-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 20px 0 9px; padding-top: 16px; border-top: 1px solid #e5b8b2; }
+.peer-review-head h4 { margin: 0; font-size: 13px; }
+.peer-review-head p { margin: 0; color: #756d66; font-size: 8px; }
+.peer-review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.peer-review { padding: 12px; border: 1px solid #ddd2ca; background: #fff; }
+.peer-review-title { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
+.peer-review-title strong { font-size: 12px; }
+.peer-review-title span { max-width: 180px; color: #756d66; font-size: 8px; text-align: right; }
+.peer-review code { display: block; margin: 7px 0 10px; color: #6b625b; font-size: 9px; }
+.peer-review dl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin: 0; }
+.peer-review dl div { padding: 7px; background: #f3eee8; }
+.peer-review dt { color: #756d66; font-size: 7px; }
+.peer-review dd { margin: 3px 0 0; font: 700 11px "IBM Plex Mono", monospace; }
+.peer-review p { margin: 9px 0 0; color: #5d554e; font-size: 8px; line-height: 1.5; }
+.peer-review p b { color: var(--red-dark); }
+@media (max-width: 700px) {
+  .analytics-heading { flex-direction: column; }
+  .analytics-findings { grid-template-columns: 1fr; }
+  .peer-review-head { align-items: start; flex-direction: column; }
+  .peer-review-grid { grid-template-columns: 1fr; }
+}

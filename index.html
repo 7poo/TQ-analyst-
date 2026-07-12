@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tuyên Quang · Dãy SBD bất thường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="analytics.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#anomaly"><span>!</span><div><small>TUYÊN QUANG</small><strong>DÃY SBD BẤT THƯỜNG</strong></div></a>
+    <p>Chọn môn · chọn quy mô · soi dãy SBD · so cụm tương đương</p>
+  </header>
+
+  <main id="anomaly">
+    <section class="subject-filter">
+      <div class="shell"><span>Môn học</span><div id="subjectTabs" class="subject-tabs"></div><span>Quy mô</span><div id="groupSizeTabs" class="subject-tabs"></div></div>
+    </section>
+
+    <section class="shell investigation">
+      <aside>
+        <p class="eyebrow">Các dãy cần xem</p>
+        <h2 id="listTitle"></h2>
+        <p class="muted">Mốc 24 bài được dùng như một phòng thi giả định. Muốn xác nhận phòng thi thật cần đối chiếu mã phòng/danh sách dự thi.</p>
+        <div id="suspectList" class="suspect-list"></div>
+      </aside>
+      <article class="detail-panel">
+        <p class="eyebrow" id="detailKicker"></p>
+        <h1 id="detailTitle"></h1>
+        <p id="detailNarrative" class="lead"></p>
+        <div id="kpis" class="kpis"></div>
+        <section class="analytics-box" aria-labelledby="analyticsTitle">
+          <div class="analytics-heading"><div><p class="eyebrow">Kết luận analytics</p><h3 id="analyticsTitle">Các dấu hiệu định lượng nổi bật</h3></div><span id="focusBadge" class="focus-badge"></span></div>
+          <div id="analyticsFindings" class="analytics-findings"></div>
+          <div class="peer-review-head"><h4>Review các dãy đặc biệt ở tỉnh đối chứng</h4><p>Mỗi tỉnh lấy dãy được pipeline đánh giá nổi bật nhất với cùng môn và cùng số bài.</p></div>
+          <div id="peerReviews" class="peer-review-grid"></div>
+        </section>
+        <div class="score-head"><h3 id="scoreTitle"></h3><span>Màu đậm dần từ 8,5 đến 10</span></div>
+        <div id="scoreGrid" class="score-grid"></div>
+      </article>
+    </section>
+
+    <section class="comparison-section">
+      <div class="shell">
+        <div class="section-head"><div><p class="eyebrow">So với cụm cao nhất cùng môn</p><h2>Dãy Tuyên Quang có thực sự khác biệt?</h2></div><p>Mỗi tỉnh dùng một dãy cao nhất có cùng môn và cùng số bài với cửa sổ đang chọn.</p></div>
+        <div id="comparisonCards" class="comparison-cards"></div>
+        <article class="sequence-panel">
+          <div class="sequence-title"><div><h3 id="sequenceTitle"></h3><p>Đọc theo hàng ngang từ SBD đầu đến SBD cuối; cùng màu nghĩa là cùng mức điểm.</p></div><div class="score-legend"><span class="l85">≥8,5</span><span class="l95">≥9,5</span><span class="l10">10</span></div></div>
+          <div id="comparisonScoreRows" class="comparison-score-rows"></div>
+        </article>
+        <div class="two-col">
+          <article class="panel"><h3>Số bài đạt ngưỡng</h3><p class="muted">Cùng mẫu số theo quy mô đang chọn.</p><div id="thresholdChart" class="chart"></div></article>
+          <article class="panel"><h3 id="distributionTitle">Phân phối điểm</h3><p class="muted">Số bài trong từng khoảng điểm, không dùng toàn tỉnh.</p><div id="distributionChart" class="chart"></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell table-section">
+      <div class="section-head"><div><p class="eyebrow">Bảng bằng chứng</p><h2>Một hàng là một dãy SBD thật</h2></div><p>Tuyên Quang luôn là dòng đầu; bốn dòng sau là cụm cao nhất của các tỉnh đối chứng.</p></div>
+      <div class="panel table-wrap"><table><thead><tr><th>Khu vực</th><th>Dãy SBD</th><th>Trung bình</th><th>Điểm 10</th><th>≥9</th><th>≥8,5</th><th>Độ lệch chuẩn</th><th>Chênh mean</th></tr></thead><tbody id="comparisonTable"></tbody></table></div>
+    </section>
+
+    <section class="warning shell"><strong>Phạm vi diễn giải:</strong> Kết quả dùng để ưu tiên kiểm tra dữ liệu gốc, phòng thi, điểm thành phần và quy trình chấm. Bất thường thống kê không tự chứng minh sai phạm hay nguyên nhân.</section>
+  </main>
+  <footer><div class="shell">Filter môn học · 1 phòng giả định (24 bài) · toàn bộ 337 SBD trong dãy nghi vấn</div></footer>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
