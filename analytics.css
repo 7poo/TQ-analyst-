@@ -37,6 +37,18 @@
 .analytics-findings article > span { color: var(--red); font: 700 10px "IBM Plex Mono", monospace; }
 .analytics-findings p { margin: 0; color: #514b45; font-size: 10px; line-height: 1.6; }
 .analytics-findings b { color: var(--red-dark); }
+.investigation > aside {
+  position: sticky;
+  top: 88px;
+  align-self: start;
+  max-height: calc(100vh - 108px);
+  overflow-y: auto;
+  padding: 4px 10px 18px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #b9afa4 transparent;
+}
+.investigation > aside::-webkit-scrollbar { width: 6px; }
+.investigation > aside::-webkit-scrollbar-thumb { border-radius: 10px; background: #b9afa4; }
 .peer-review-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 20px 0 9px; padding-top: 16px; border-top: 1px solid #e5b8b2; }
 .peer-review-head h4 { margin: 0; font-size: 13px; }
 .peer-review-head p { margin: 0; color: #756d66; font-size: 8px; }
@@ -52,6 +64,9 @@
 .peer-review dd { margin: 3px 0 0; font: 700 11px "IBM Plex Mono", monospace; }
 .peer-review p { margin: 9px 0 0; color: #5d554e; font-size: 8px; line-height: 1.5; }
 .peer-review p b { color: var(--red-dark); }
+@media (max-width: 900px) {
+  .investigation > aside { position: static; max-height: none; overflow: visible; padding-right: 0; }
+}
 @media (max-width: 700px) {
   .analytics-heading { flex-direction: column; }
   .analytics-findings { grid-template-columns: 1fr; }
